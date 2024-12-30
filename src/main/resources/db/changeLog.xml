@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="1" author="user">
+        <createSequence
+                sequenceName="MAIN_SEQUENCE"
+                startValue="1"
+                incrementBy="50"/>
+    </changeSet>
+
+    <changeSet id="2" author="user">
+        <createTable tableName="OBJECT">
+            <column name="ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="KEY_1" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="KEY_2" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TYPE" type="VARCHAR(255)"/>
+
+        </createTable>
+        <addPrimaryKey
+                columnNames="ID,KEY_1,KEY_2"
+                constraintName="pk_OBJECT"
+                tableName="OBJECT"/>
+    </changeSet>
+
+    <changeSet id="3" author="user">
+        <createTable tableName="ELEMENT">
+            <column name="ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="KEY_1" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="KEY_2" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LABEL" type="VARCHAR(255)"/>
+        </createTable>
+        <addPrimaryKey
+                columnNames="ID,KEY_1,KEY_2"
+                constraintName="pk_ELEMENT"
+                tableName="ELEMENT"/>
+
+    </changeSet>
+
+    <changeSet id="4" author="user">
+        <createTable tableName="COMPONENT">
+            <column name="ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="KEY_1" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="KEY_2" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NUMBER" type="VARCHAR(255)"/>
+        </createTable>
+
+        <addPrimaryKey
+                columnNames="ID,KEY_1,KEY_2"
+                constraintName="pk_COMPONENT"
+                tableName="COMPONENT"/>
+
+    </changeSet>
+
+</databaseChangeLog>
